@@ -1,0 +1,25 @@
+{
+  "name": "crowdfund",
+  "version": "1.0.0",
+  "description": "CrownFund Ethereum base sample",
+  "main": "truffle.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duongvansang/crowdfundsample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duongvansang/crowdfundsample/issues"
+  },
+  "homepage": "https://github.com/duongvansang/crowdfundsample#readme",
+  "dependencies": {
+    "truffle-privatekey-provider": "^1.0.0"
+  }
+}
