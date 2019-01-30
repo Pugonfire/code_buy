@@ -1,26 +1,6 @@
-pragma solidity 0.4.25;
-
-
-contract CampaignCreator {
-    address[] public campaigns;
-    
-    function createCampaign(uint minContribution, string description) 
-        public {
-            address newCampaign = new CrowdCollab(
-                msg.sender,
-                minContribution,
-                description);
-
-            campaigns.push(newCampaign);
-    }
-    
-    function getCampaigns() public view returns( address[] ) {
-        return campaigns;
-    }
-}
+pragma solidity ^0.4.25;
 
 contract CrowdCollab { 
-    
     struct Request {
         string description;
         uint amount;
@@ -29,7 +9,8 @@ contract CrowdCollab {
         mapping(address=>bool) approvals;
         uint approvalCount; 
     }
-address public manager;
+
+    address public manager;
     uint public minimumContribution;
     string public campaignDescription;
     mapping(address=>bool) public supporters;
