@@ -1,4 +1,4 @@
-pragma solidity 0.4.25;
+pragma solidity ^0.4.25;
 
 /**
  * @title Crowd fund smart contract, demonstration to solve problem of center crowd fund model
@@ -49,7 +49,7 @@ contract CrowdCollab {
     }
 
     /**
-     * @dev: init campaign 
+     * @dev init campaign 
      * @param creator who is author and manage project
      * @param minContribution minimum money can contribute for project (in ETH)
      * @param description description of campaign, purpose of campaign
@@ -61,7 +61,7 @@ contract CrowdCollab {
     }
 
     /**
-     * @dev: payable of campaign, where supporter send Ethereum to campaign
+     * @dev payable of campaign, where supporter send Ethereum to campaign
      */
     function support() public payable {
         require(msg.value > minimumContribution);
@@ -70,7 +70,7 @@ contract CrowdCollab {
     }      
 
     /**
-     * @dev: Create a expense request, only manager of campaign are able to do it
+     * @dev Create a expense request, only manager of campaign are able to do it
      * @param description expense purpose
      * @param amount total money need for expense items
      * @param recipient who, which address will reiceive money when request is approved
@@ -88,7 +88,7 @@ contract CrowdCollab {
     }
     
     /**
-     * @dev: Approve expense request from manager, apply for supporter only
+     * @dev Approve expense request from manager, apply for supporter only
      * @param requestId expense request id
      */
     function approveRequest(uint requestId) public supporterOnly {
@@ -99,7 +99,7 @@ contract CrowdCollab {
     }  
 
     /**
-     * @dev: finalize expense request and transfer money to receiver
+     * @dev finalize expense request and transfer money to receiver
      * @param requestId expense request id
      */
     function finalizeRequest(uint requestId) public managerOnly {
