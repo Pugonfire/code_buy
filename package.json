@@ -1,27 +1,22 @@
 {
-  "name": "crownfundsample",
+  "name": "crowdfundsample",
   "version": "1.0.0",
-  "description": "CrownFund Ethereum base sample",
-  "main": "truffle.js",
-  "directories": {
-    "test": "test"
-  },
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Morpheuslabs-io/qkb-smart-contract.git"
+    "test": "mocha",
+    "dev": "node server.js",
+    "build": "next build"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Morpheuslabs-io/qkb-smart-contract/issues"
-  },
-  "homepage": "https://github.com/Morpheuslabs-io/qkb-smart-contract#readme",
   "dependencies": {
-    "dotenv": "^6.2.0",
-    "truffle-hdwallet-provider": "0.0.6",
-    "truffle-privatekey-provider": "^0.1.0"
+    "next": "^7.0.2",
+    "next-routes": "^1.4.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "semantic-ui-react": "^0.84.0",
+    "truffle-artifactor": "^4.0.3",
+    "web3": "1.0.0-beta.35"
   }
 }

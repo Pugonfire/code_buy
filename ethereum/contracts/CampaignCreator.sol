@@ -26,9 +26,9 @@ contract CampaignCreator {
     }
 
     /**
-    * @dev get all campaigns
+    * @dev get all deployed campaigns
     */
-    function getCampaigns() public view returns (address[]) {
+    function getDeployedCampaigns() public view returns (address[]) {
         return campaigns;
     }
 }
