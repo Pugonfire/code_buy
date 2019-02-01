@@ -33,7 +33,7 @@ contract CrowdCollab {
 
     // current number of supporter of campaign, 
     // when any one contribute money for project, he/she will be come supporter
-    uint public numberSupporters;
+    uint public approversCount;
 
     // list of expense request for project
     Request[] public requests;
@@ -61,12 +61,12 @@ contract CrowdCollab {
     }
 
     /**
-     * @dev payable of campaign, where supporter send Ethereum to campaign
+     * @dev payable of campaign, where supporter send Ethereum to contribute for campaign
      */
-    function support() public payable {
+    function contribute() public payable {
         require(msg.value > minimumContribution);
         supporters[msg.sender] = true;
-        numberSupporters ++;
+        numberSupporters++;
     }      
 
     /**
@@ -109,4 +109,26 @@ contract CrowdCollab {
         request.recipient.transfer(request.amount);
         request.complete = true;
     } 
+
+    /**
+     * @dev get summary information about campaign
+     */
+    function getSummary() public view returns (
+      uint, uint, uint, uint, address
+      ) {
+        return (
+          minimumContribution,
+          address(this).balance,
+          requests.length,
+          numberSupporters,
+          manager
+        );
+    }
+
+    /**
+     * @dev get request number
+     */
+    function getRequestsCount() public view returns (uint) {
+        return requests.length;
+    }
 }

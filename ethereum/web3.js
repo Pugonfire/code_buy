@@ -3,7 +3,6 @@ import Web3 from 'web3';
 let web3;
 // const network = "https://rinkeby.infura.io/orDImgKRzwNrVCDrAk5Q";
 const network = "http://localhost:7545";
-console.log("WEb INIT");
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   // We are in the browser and metamask is running.
@@ -14,5 +13,5 @@ if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   web3 = new Web3(provider);
 }
 
-console.log(web3.defaultAccount);
+// console.log(web3.defaultAccount);
 export default web3;
