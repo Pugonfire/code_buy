@@ -33,7 +33,7 @@ contract CrowdCollab {
 
     // current number of supporter of campaign, 
     // when any one contribute money for project, he/she will be come supporter
-    uint public approversCount;
+    uint public numberSupporters;
 
     // list of expense request for project
     Request[] public requests;
