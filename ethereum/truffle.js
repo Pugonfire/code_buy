@@ -13,12 +13,11 @@
  */
 
 
-const HDWalletProvider = require('truffle-hdwallet-provider');
 const PrivateKeyProvider = require("truffle-privatekey-provider");
 
 const gasPrice = 500000000; //process.env.GASPRICE;
-const key = "eaafe8a2221a1d023fe55fd9df3f6784ae91746863e279b9f7a286722cbc6d22";
-const url = "http://localhost:7545"
+const key = "c115f2ca701618bfc73126f1cac91beba7a59511801df72ee41465ddef9931a5";
+const url = "http://bops-t.morpheuslabs.io:26918"
 
 // const getGasPrice = async function() {
 //   let err, res;
@@ -32,8 +31,6 @@ const url = "http://localhost:7545"
 // };
 //
 // getGasPrice();
-
-// console.log('Gas Price: ' + gasPrice + ' Wei');
 
 module.exports = {
   solc: {

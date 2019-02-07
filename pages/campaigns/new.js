@@ -19,7 +19,6 @@ class CampaignNew extends Component {
 
     try {
       const accounts = await web3.eth.getAccounts();
-      console.log(accounts);
       await factory.methods
         .createCampaign(this.state.minimumContribution, "Test creating campaign")
         .send({
