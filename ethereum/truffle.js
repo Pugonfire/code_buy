@@ -16,8 +16,8 @@
 const PrivateKeyProvider = require("truffle-privatekey-provider");
 
 const gasPrice = 500000000; //process.env.GASPRICE;
-const key = "c115f2ca701618bfc73126f1cac91beba7a59511801df72ee41465ddef9931a5";
-const url = "http://bops-t.morpheuslabs.io:26918"
+const privateKey = "2a7a1d3043cec99a1b23d7dd6188a26b9626427acc10b5298f26e97efdffafbe";
+const network = "http://bops.morpheuslabs.io:23036"
 
 // const getGasPrice = async function() {
 //   let err, res;
@@ -45,7 +45,7 @@ module.exports = {
     development: {              // ganache development
       provider: function() {
         // return new HDWalletProvider(mnemonic, infuraMain)
-        return new PrivateKeyProvider(key, url)
+        return new PrivateKeyProvider(privateKey, network)
       },
       network_id: "*",
       gas: 6000000,
