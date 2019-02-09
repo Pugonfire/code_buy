@@ -67,7 +67,14 @@ contract CrowdCollab {
         require(msg.value > minimumContribution);
         supporters[msg.sender] = true;
         numberSupporters++;
-    }      
+    }
+
+    /**
+     * @dev payable of campaign, where supporter send Ethereum to contribute for campaign
+     */
+    function support() public payable {
+        contribute();
+    }    
 
     /**
      * @dev Create a expense request, only manager of campaign are able to do it
