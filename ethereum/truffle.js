@@ -16,10 +16,10 @@
 const PrivateKeyProvider = require("truffle-privatekey-provider");
 
 const gasPrice = 500000000; //process.env.GASPRICE;
-// const privateKey = "2a7a1d3043cec99a1b23d7dd6188a26b9626427acc10b5298f26e97efdffafbe";
-// const network = "http://bops.morpheuslabs.io:23036"
-const privateKey = "eaafe8a2221a1d023fe55fd9df3f6784ae91746863e279b9f7a286722cbc6d22";
-const network = "http://localhost:7545"
+const privateKey = "2a7a1d3043cec99a1b23d7dd6188a26b9626427acc10b5298f26e97efdffafbe";
+const network = "http://bops.morpheuslabs.io:23036"
+// const privateKey = "eaafe8a2221a1d023fe55fd9df3f6784ae91746863e279b9f7a286722cbc6d22";
+// const network = "http://localhost:7545"
 
 // const getGasPrice = async function() {
 //   let err, res;
@@ -31,7 +31,6 @@ const network = "http://localhost:7545"
 //     gasPrice = res;
 //   }
 // };
-//
 // getGasPrice();
 
 module.exports = {

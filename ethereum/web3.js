@@ -1,8 +1,10 @@
 import Web3 from 'web3';
+import window from 'global'
 
 let web3;
 // const network = "https://rinkeby.infura.io/orDImgKRzwNrVCDrAk5Q";
-const network = "http://localhost:7545";
+const network = "http://bops.morpheuslabs.io:23036";
+
 
 if (typeof window !== 'undefined' && typeof window.web3 !== 'undefined') {
   // We are in the browser and metamask is running.
