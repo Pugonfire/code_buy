@@ -16,9 +16,9 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 
 const gasPrice = 1000000000; //process.env.GASPRICE;
-let privateKeys = ["ad94c2949c05b2368418d4dac4281e60808b865fffbfe0a5ed0d0c9d8230717d"];
-const network = "http://bops-t.morpheuslabs.io:28013";
-const chainId = 1871;
+let privateKeys = ["e87a4fa6d92755fe2549ed26ba579e847ab84b73aa19e6cd0a35f70f81ed5540"];
+const network = "http://bops.morpheuslabs.io:29843";
+const chainId = 2588;
 
 module.exports = {
   compilers: {
