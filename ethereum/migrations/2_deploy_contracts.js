@@ -1,5 +1,5 @@
-var CampaignCreator = artifacts.require("./CampaignCreator");
+var TaskCreator = artifacts.require("./TaskCreator");
 
 module.exports = function(deployer) {
-  deployer.deploy(CampaignCreator);
+  deployer.deploy(TaskCreator);
 };

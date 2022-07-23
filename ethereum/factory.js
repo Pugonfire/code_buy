@@ -1,8 +1,8 @@
 import web3 from './web3';
-import CampaignFactory from './build/contracts/CampaignCreator.json';
+import TaskFactory from './build/contracts/TaskCreator.json';
 
-const campaignFactoryAddress = "0x2dBd38B291D9FF6Ab51236163f6AAe471519A875";
+const TaskFactoryAddress = "0x4Bf2AeAe78559e4e2D81E34043e4e162Cd03d94F";
 
-const instance = new web3.eth.Contract(CampaignFactory.abi, campaignFactoryAddress);
+const instance = new web3.eth.Contract(TaskFactory.abi, TaskFactoryAddress);
 
 export default instance;
