@@ -7,7 +7,10 @@ import { Router } from '../../routes';
 
 class CampaignNew extends Component {
   state = {
+    description: '',
     amount: '',
+    input: '',
+    output: '',
     errorMessage: '',
     loading: false
   };
@@ -20,7 +23,7 @@ class CampaignNew extends Component {
     try {
       const accounts = await web3.eth.getAccounts();
       await factory.methods
-        .createTask("When input is 1 & 2, output should be 10, 100 respectively. 0 otherwise", this.state.amount, [1, 2], [10, 100])
+        .createTask(this.state.description, this.state.amount, this.state.input.split(',').map(Number), this.state.output.split(',').map(Number))
         .send({
           from: accounts[0]
         });
@@ -39,6 +42,14 @@ class CampaignNew extends Component {
         <h3>Create a Task</h3>
 
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
+        <Form.Field>
+            <label>Description</label>
+            <Input
+              value={this.state.description}
+              onChange={event =>
+                this.setState({ description: event.target.value })}
+            />
+          </Form.Field>
           <Form.Field>
             <label>Amount</label>
             <Input
@@ -49,10 +60,25 @@ class CampaignNew extends Component {
                 this.setState({ amount: event.target.value })}
             />
           </Form.Field>
-
+          <Form.Field>
+            <label>Input (Cases separated by ',')</label>
+            <Input
+              value={this.state.input}
+              onChange={event =>
+                this.setState({ input: event.target.value })}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Output (Cases separated by ',')</label>
+            <Input
+              value={this.state.output}
+              onChange={event =>
+                this.setState({ output: event.target.value })}
+            />
+          </Form.Field>
           <Message error header="Oops!" content={this.state.errorMessage} />
           <Button loading={this.state.loading} primary>
-            Create!
+            Post Task
           </Button>
         </Form>
       </Layout>

@@ -13,17 +13,16 @@ class CampaignIndex extends Component {
 
   renderCampaigns() {
     const items = this.props.campaigns.map(address => {
-      return {
+      return {  
         header: address,
         description: (
-          <Link route={`/campaigns/${address}`}>
+          <Link route={`/tasks/${address}`}>
             <a>View Task</a>
           </Link>
         ),
         fluid: true
       };
     });
-
     return <Card.Group items={items} />;
   }
 
@@ -33,7 +32,7 @@ class CampaignIndex extends Component {
         <div>
           <h3>Open Tasks</h3>
 
-          <Link route="/campaigns/new">
+          <Link route="/tasks/new">
             <a>
               <Button
                 floated="right"

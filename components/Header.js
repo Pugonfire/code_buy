@@ -14,7 +14,7 @@ export default () => {
           <a className="item">Tasks</a>
         </Link>
 
-        <Link route="/campaigns/new">
+        <Link route="/tasks/new">
           <a className="item">+</a>
         </Link>
       </Menu.Menu>

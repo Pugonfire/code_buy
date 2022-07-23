@@ -34,7 +34,7 @@ class RequestNew extends Component {
         .createRequest(description, web3.utils.toWei(value, 'ether'), recipient)
         .send({ from: accounts[0] });
 
-      Router.pushRoute(`/campaigns/${this.props.address}/requests`);
+      Router.pushRoute(`/tasks/${this.props.address}/requests`);
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
@@ -45,7 +45,7 @@ class RequestNew extends Component {
   render() {
     return (
       <Layout>
-        <Link route={`/campaigns/${this.props.address}/requests`}>
+        <Link route={`/tasks/${this.props.address}/requests`}>
           <a>Back</a>
         </Link>
         <h3>Create a Request</h3>

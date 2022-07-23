@@ -19,7 +19,7 @@ contract Task {
     uint[] public outputs;
 
     // status of task (complete/not complete)
-    bool public complete;
+    bool public complete = false;
 
     constructor(address creator, string memory description, uint amt, uint[] memory inp, uint[] memory outp) public {  
         taskMaker = creator;
@@ -27,7 +27,6 @@ contract Task {
         amount = amt;
         inputs = inp;
         outputs = outp;
-        complete = false;
     }
 
     // Add test cases
@@ -45,18 +44,21 @@ contract Task {
     }
 
     // called when task has been solved
-    function solve(address payable solver) public {
+    function solve(address payable solver) public returns (uint) {
+        if (complete = true) return 0;
         complete = true; // mark task as solved
         solver.transfer(amount); // transfer prize amount to solver
+        return 1;
     }
 
     // return info about task
-    function getSummary() public view returns (uint, string memory, uint[] memory, uint[] memory) {
+    function getSummary() public view returns (uint, string memory, uint[] memory, uint[] memory, bool) {
         return (
             amount,
             taskDescription,
             inputs,
-            outputs
+            outputs,
+            complete
         );
     }
 }
