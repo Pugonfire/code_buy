@@ -7,7 +7,7 @@ import { Router } from '../../routes';
 
 class CampaignNew extends Component {
   state = {
-    minimumContribution: '',
+    amount: '',
     errorMessage: '',
     loading: false
   };
@@ -20,7 +20,7 @@ class CampaignNew extends Component {
     try {
       const accounts = await web3.eth.getAccounts();
       await factory.methods
-        .createCampaign(this.state.minimumContribution, "Test creating campaign")
+        .createTask("When input is 1 & 2, output should be 10, 100 respectively. 0 otherwise", this.state.amount, [1, 2], [10, 100])
         .send({
           from: accounts[0]
         });
@@ -36,17 +36,17 @@ class CampaignNew extends Component {
   render() {
     return (
       <Layout>
-        <h3>Create a Campaign</h3>
+        <h3>Create a Task</h3>
 
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Field>
-            <label>Minimum Contribution</label>
+            <label>Amount</label>
             <Input
               label="wei"
               labelPosition="right"
-              value={this.state.minimumContribution}
+              value={this.state.amount}
               onChange={event =>
-                this.setState({ minimumContribution: event.target.value })}
+                this.setState({ amount: event.target.value })}
             />
           </Form.Field>
 

@@ -6,7 +6,7 @@ import { Link } from '../routes';
 
 class CampaignIndex extends Component {
   static async getInitialProps() {
-    const campaigns = await factory.methods.getDeployedCampaigns().call();
+    const campaigns = await factory.methods.getTasks().call();
     
     return { campaigns };
   }
@@ -17,7 +17,7 @@ class CampaignIndex extends Component {
         header: address,
         description: (
           <Link route={`/campaigns/${address}`}>
-            <a>View Campaign</a>
+            <a>View Task</a>
           </Link>
         ),
         fluid: true
@@ -31,13 +31,13 @@ class CampaignIndex extends Component {
     return (
       <Layout>
         <div>
-          <h3>Open Campaigns</h3>
+          <h3>Open Tasks</h3>
 
           <Link route="/campaigns/new">
             <a>
               <Button
                 floated="right"
-                content="Create Campaign"
+                content="Create Task"
                 icon="add circle"
                 primary
               />
