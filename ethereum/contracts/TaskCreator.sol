@@ -6,23 +6,20 @@ contract TaskCreator {
 
     // list of campaigns
     address[] public tasks;
-
     
     // Create new task
     // Takes in two arrays for input and output. Must be arranged accordingly
-    function createTask(string memory description, uint amount, string[] inputs, string[] outputs) public {
+    function createTask(string memory description, uint amount, uint[] memory inputs, uint[] memory outputs) public {
+        
         address newTask = address (new Task(
             msg.sender,
             description,
-            amount
+            amount,
+            inputs,
+            outputs
         ));
 
-        // iterate through both arrays to create the test cases
-        for (uint i=0; i<inputs.length; i++) {
-            newTask.addTestCase(inputs[i], outputs[i]);
-        }
-
-        Tasks.push(newTask);
+        tasks.push(newTask);
     }
 
     // get all tasks

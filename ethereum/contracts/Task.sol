@@ -3,14 +3,6 @@ pragma solidity ^0.5.0;
 
 contract Task { 
 
-    struct TestCase {
-        string input;
-        string output;
-    }
-
-    // Array of test cases
-    TestCase[] public TestCases;
-
     // store address of task issuer
     address public taskMaker;
 
@@ -20,42 +12,51 @@ contract Task {
     // payable amount
     uint public amount;
 
+    // test cases input
+    uint[] public inputs;
+
+    // test cases output
+    uint[] public outputs;
+
     // status of task (complete/not complete)
     bool public complete;
 
-    constructor(address creator, string memory description, uint amt) public {  
+    constructor(address creator, string memory description, uint amt, uint[] memory inp, uint[] memory outp) public {  
         taskMaker = creator;
         taskDescription = description;
         amount = amt;
+        inputs = inp;
+        outputs = outp;
         complete = false;
     }
 
     // Add test cases
-    function addTestCase(string in, string out) public { 
-        TestCase memory newTestCase = TestCase({
-            input: in,
-            output: out
-        });
-        TestCases.push(newTestCase);
-    }
+    // function addTestCase(string memory inp, string memory outp) public { 
+    //     TestCase memory newTestCase = TestCase({
+    //         input: inp,
+    //         output: outp
+    //     });
+    //     TestCases.push(newTestCase);
+    // }
 
     // get no. of testcases
     function getTestCaseCount() public view returns (uint) {
-        return TestCases.length;
+        return inputs.length;
     }
 
     // called when task has been solved
-    function solve(address solver) public {
+    function solve(address payable solver) public {
         complete = true; // mark task as solved
         solver.transfer(amount); // transfer prize amount to solver
     }
 
     // return info about task
-    function getSummary() public view returns (uint, string, TestCases) {
+    function getSummary() public view returns (uint, string memory, uint[] memory, uint[] memory) {
         return (
             amount,
-            description,
-            TestCases
+            taskDescription,
+            inputs,
+            outputs
         );
     }
 }
